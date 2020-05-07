@@ -6,9 +6,10 @@ from rest_framework.parsers import JSONParser
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 @api_view(['GET', 'POST'])
-def snippet_list(request):
+def snippet_list(request, format=None):
     """
     코드 조각을 모두 보여주거나 새 코드 조각을 만듭니다.
     """
@@ -25,7 +26,7 @@ def snippet_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def snippet_detail(request, pk):
+def snippet_detail(request, pk, format=None):
     """
     코드 조각 조회, 업데이트, 삭제
     """

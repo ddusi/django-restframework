@@ -8,6 +8,7 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
 '''
 urlpatterns = [
     url(r'^snippets/$', views.snippet_list),
